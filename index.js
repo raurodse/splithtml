@@ -98,71 +98,7 @@ function searchCommonParent(desdedondebuscar,identificadornodoinicio,identificad
 	return padrecomun;
 }
 
-function segundocaso(orig,dest,startid,endid){
-	var commonparent = searchCommonParent(orig,startid,endid);
-	var initialnode = orig.querySelector(startid);
-	var container = initialnode.parentNode.cloneNode();
-	var node = initialnode;
-	var found = false;
-	var firstloop = true;
-	var i ;
-	debugger;
-	if (startid === endid){
-		dest.appendChild(initialnode.cloneNode(true));
-		return ;
-	}
-	var temp = endid;
-	if(temp.indexOf("#") === 0){
-		temp = temp.substr(1);
-	}
-
-	container.appendChild(initialnode.cloneNode(true));
-	if(commonparent !== 'undefined'){
-		do{
-			while(node.nextSibling !== null){
-				node = node.nextSibling;
-
-				
-				if(node.id === temp){
-					found = true;
-					break;
-				}
-
-				if(node.querySelector){
-					if(node.querySelector(endid)){
-						var aux = node.cloneNode();
-						primercaso(node,aux,endid);
-						container.appendChild(aux);
-						found = true;
-						break;
-					}
-				}
-				container.appendChild(node.cloneNode(true));
-			}
-			if(firstloop){
-
-				firstloop = false;
-			}
-			else{
-				var aux = container;
-				container = node.parentNode.cloneNode();
-				container.appendChild(aux);
-			}
-			node = node.parentNode;
-			if(found){
-				break;
-			}
-		}
-		while(true);
-		for( i = 0; i < container.childNodes.length; i++){
-			dest.appendChild(container.childNodes[i].cloneNode(true));
-		}
-	}
-	
-}
-
-
-function complexCase(orig,dest,startid,endid){
+function complexCase(orig,dest,startid,endid,endcase){
 	var commonparent , initialnode, node,
 		container = null,
 		found = false;
@@ -219,6 +155,11 @@ function complexCase(orig,dest,startid,endid){
 			container.appendChild(node.cloneNode(true));
 		}
 		node = node.parentNode;
+		if(encase){
+			if(node.parentNode node.parentNode.querySelector && (node.parentNode.querySelector(endid) === node)){
+				break loopall;
+			}
+		}
 	}
 		
 	for( i = 0; i < container.childNodes.length; i++){
