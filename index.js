@@ -56,6 +56,23 @@ function searchCommonParent(desdedondebuscar,identificadornodoinicio,identificad
 	var padrecomun;
 	var nodoinicio = desdedondebuscar.querySelector(identificadornodoinicio);
 	var nodofin = desdedondebuscar.querySelector(identificadornodofin);
+
+	if(nodofin === null){
+		if(desdedondebuscar.parentNode && desdedondebuscar.parentNode.querySelector){
+			if(desdedondebuscar.parentNode.querySelector(identificadornodofin) === desdedondebuscar){
+				nodofin = desdedondebuscar;
+			}
+		}
+	}
+
+	if(nodoinicio === null){
+		if(desdedondebuscar.parentNode && desdedondebuscar.parentNode.querySelector){
+			if(desdedondebuscar.parentNode.querySelector(identificadornodoinicio) === desdedondebuscar){
+				nodoinicio = desdedondebuscar;
+			}
+		}
+	}
+
 	var resultado = nodoinicio.compareDocumentPosition(nodofin);
 	var parentinicio, parentfin;
 	if(resultado & Node.DOCUMENT_POSITION_CONTAINED_BY){
@@ -98,11 +115,13 @@ function searchCommonParent(desdedondebuscar,identificadornodoinicio,identificad
 	return padrecomun;
 }
 
-function complexCase(orig,dest,startid,endid,endcase){
+function complexCase(orig,dest,startid,endid){
 	var commonparent , initialnode, node,
 		container = null,
+		endcase = false,
 		found = false;
 
+	debugger;
 	// Same node
 	if(startid === endid){
 		dest.appendChild(orig.querySelector(startid).cloneNode(true))
@@ -111,6 +130,9 @@ function complexCase(orig,dest,startid,endid,endcase){
 	// Not related nodes
 	try{
 		commonparent = searchCommonParent(orig,startid,endid);
+		if(commonparent === orig){
+			endcase = true;
+		}
 	}
 	catch(err){
 		return;
@@ -155,8 +177,8 @@ function complexCase(orig,dest,startid,endid,endcase){
 			container.appendChild(node.cloneNode(true));
 		}
 		node = node.parentNode;
-		if(encase){
-			if(node.parentNode node.parentNode.querySelector && (node.parentNode.querySelector(endid) === node)){
+		if(endcase){
+			if(node.parentNode && node.parentNode.querySelector && (node.parentNode.querySelector(endid) === node)){
 				break loopall;
 			}
 		}
