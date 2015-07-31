@@ -1,0 +1,32 @@
+{
+  "name": "htmlsplitter",
+  "title": "htmlsplitter",
+  "description": "JavaScript library to split html by selectors into dom objects",
+  "version": "0.1.0",
+  "main": "index.js",
+  "homepage": "",
+  "author": {
+    "name": "Raul Rodrigo Segura",
+    "url": "https://github.com/raurodse/splithtml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raurodse/splithtml.git"
+  },
+  "keywords": [
+    "library"
+  ],
+  "bugs": {
+  },
+  "licenses": [
+    {
+      "type": "GPL3",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    },
+  "scripts": {
+  }
+}
