@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="splitterHTML.js"></script>
+	<style type="text/css">
+		section{
+			margin:10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>From Start To chapter 1.2</h1>
+	<div id="tochapter1_2"></div>
+
+	<h1>---------------------------------</h1>
+	<h1>From chapter 1.3 To chapter 1.3.2</h1>
+	<div id="fromchapter1_3to_1_3_2"></div>
+
+	<h1>---------------------------------</h1>
+	<h1>From chapter chapter 1.4.1 To end</h1>
+	<div id="fromchapter1_4_1toend"></div>
+
+	<h1>All content</h1>
+	<h1>---------------</h1>
+	<div id="allcontent"></div>
+
+
+
+	<!-- Examples -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.get('contentHTML.html',function(data){
+				
+				$("#allcontent").html(data);
+				alltext = $(document.createElement('HTML')).html(data)[0];
+				/**
+				 * This function write into div with id tochapter1_2 content of the contentHTML file from first node to node with identifier chapter1_3. Node with identifier chapter1_3 not included
+				 */
+				HtmlSplitter.splitTo(alltext.querySelector('body'),
+									 document.querySelector('#tochapter1_2'),
+									 "#chapter1_3");
+				/**
+				 * This function write into div with id fromchapter1_3to_1_3_2 content of the contentHTML file from node with identifier chapter1_3 to node with identifier chapter1_3_2. Node with identifier chapter1_3 is included but, node with identifier chapter1_3_2 not.
+				 */
+				HtmlSplitter.splitFromTo(alltext.querySelector('body'),
+									 document.querySelector('#fromchapter1_3to_1_3_2'),
+									 "#chapter1_3","#chapter1_3_2");
+
+				/**
+				 * This function write into div with id fromchapter1_4_1toend content of the contentHTML file from node with identifier chapter1_4_1 to body node. In this case, body is last node.
+				 */
+				HtmlSplitter.splitFromTo(alltext.querySelector('body'),
+									 document.querySelector('#fromchapter1_4_1toend'),
+									 "#chapter1_4_1");
+			});
+		});
+	</script>
+</body>
+</html>
