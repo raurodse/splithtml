@@ -1,6 +1,6 @@
 {
   "name": "htmlsplitter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "JavaScript library to split html by selectors into dom objects",
   "main": "index.js",
   "scripts": {
