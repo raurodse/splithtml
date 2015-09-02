@@ -12,20 +12,20 @@ $.get('contentHTML.html',function(data){
 Get content from start DOM to first result of needle
 ```
   var result = document.createElement('div');
-  HtmlSplitter.splitTo(alltext.querySelector('body'),result,"#chapter1_3");
+  HtmlSplitter.splitTo(alltext.querySelector('body'), result, "#chapter1_3");
 
 ```
 
 Get content from needle1 to needle2, excluding content of node with needle2
 ```
   var result2 = document.createElement('div');
-  HtmlSplitter.splitFromTo(alltext.querySelector('body'),result2,"#chapter1_3","#chapter1_3_2");
+  HtmlSplitter.splitFromTo(alltext.querySelector('body'), result2, "#chapter1_3", "#chapter1_3_2");
 ```
 
 To get content from needle to last node you can omit needle2
 ```
   var result3 = document.createElement('div');
-  HtmlSplitter.splitFromTo(alltext.querySelector('body'),result3,             "#chapter1_4_1");
+  HtmlSplitter.splitFromTo(alltext.querySelector('body'), result3, "#chapter1_4_1");
       });
 ```
 
