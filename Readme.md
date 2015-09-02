@@ -1,4 +1,36 @@
 # Usage 
+You need html content to split into DOM node :
+```
+$.get('contentHTML.html',function(data){
+        $("#allcontent").html(data);
+        alltext = $(document.createElement('HTML')).html(data)[0];
+        ...
+
+      });
+```
+
+Get content from start DOM to first result of needle
+```
+  var result = document.createElement('div');
+  HtmlSplitter.splitTo(alltext.querySelector('body'),result,"#chapter1_3");
+
+```
+
+Get content from needle1 to needle2, excluding content of node with needle2
+```
+  var result2 = document.createElement('div');
+  HtmlSplitter.splitFromTo(alltext.querySelector('body'),result2,"#chapter1_3","#chapter1_3_2");
+```
+
+To get content from needle to last node you can omit needle2
+```
+  var result3 = document.createElement('div');
+  HtmlSplitter.splitFromTo(alltext.querySelector('body'),result3,             "#chapter1_4_1");
+      });
+```
+
+# Api
+
 ## HtmlSplitter.splitFromTo(orig,dest,needle)
   Create a orig content copy from first orig node to needle.
   
