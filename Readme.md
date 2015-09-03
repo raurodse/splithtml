@@ -2,7 +2,6 @@
 You need html content to split into DOM node :
 ```
 $.get('contentHTML.html',function(data){
-        $("#allcontent").html(data);
         alltext = $(document.createElement('HTML')).html(data)[0];
         ...
 
