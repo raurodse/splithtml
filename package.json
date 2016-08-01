@@ -1,6 +1,6 @@
 {
   "name": "htmlsplitter",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "JavaScript library to split html by selectors into dom objects",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "license": "GPL3",
   "bugs": {
     "url": "https://github.com/raurodse/splithtml/issues"
+  },
+  "dependencies": {
+    "jsdom": "^6.3.0"
   }
 }

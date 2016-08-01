@@ -53,7 +53,7 @@
 		var commonparent, result, parentstartnode, parentendnode;
 		var startnode = orig.querySelector(firstidentifier);
 		var endnode = orig.querySelector(lastidentifier);
-
+		var Node = Node || require('jsdom').jsdom().defaultView.Node;
 		if(endnode === null){
 			if(orig.parentNode && orig.parentNode.querySelector){
 				if(orig.parentNode.querySelector(lastidentifier) === orig){
